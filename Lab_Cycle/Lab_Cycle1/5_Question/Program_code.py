@@ -18,7 +18,7 @@ def substring(s):
   print("\nSubstrings '",s,"'")
   for i in range(len(s)+1):
     for j in range(i+1,len(s)+1):
-       print(s[i:j],end=" ")    
+       print(s[i:j])    
   print("\t")
 
 #function to generate substring of particular length           

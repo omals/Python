@@ -30,12 +30,16 @@ def contribution(a1,a2):                         #a1- area of first triangle
   con1=(a1/(a1+a2))*100                          #con1- contribution of first triangle
   con2=(a2/(a1+a2))*100                          #con2- contribution of second triangle
   print("Contribution of first triangle",con1)
-  print("Contribution of second triangle",con2)
+  print("Contribution of second triangle",con2,"\n")
 
 #function to be invoked
 def main():
+  print("\nArea of TRIANGLE")
+  print("TRIANGLE 1 : ")
   area1=area()
+  print("\nTRIANGLE 2 : ")
   area2=area()
+  print("\nContribution of each trianglr")
   contribution(area1,area2)
 
 main()                                            #function invokation

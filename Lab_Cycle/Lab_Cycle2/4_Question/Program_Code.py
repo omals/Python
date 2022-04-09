@@ -1,9 +1,6 @@
-"""Write a program to create a class Box with data members length,
-breadth, height, area, and volume. Provider constructor that enables
-initialization with one parameter (for cube), two parameters (for
-square prism) three parameters (rectangular prism). Also, provide
-functions to calculate area and volume.
-Create a list of N boxes with random measurements and print the
+"""Write a program to create a class Box with data members length, breadth, height, area, and volume. Provider constructor that enables
+initialization with one parameter (for cube), two parameters (for square prism) three parameters (rectangular prism). Also, provide
+functions to calculate area and volume. Create a list of N boxes with random measurements and print the
 details of the box with maximum volume: area ratio."""
 
 import random
@@ -39,7 +36,7 @@ class Box:                                              #class box defined
         else:
           print("Something went worry") 
  
-    def volume(self):                                 #member function to calculate volume
+   # def volume(self):                                 #member function to calculate volume
         if(self.count==0):
           self.volume=self.length**3
         elif(self.count==1):
@@ -58,53 +55,93 @@ class Box:                                              #class box defined
        return r
 
 def maxratio(r):                                    #function to find and check the maximum Volume:Area ratio
-  m=max(r)                                          # m-maximum value in the list 'r'
-  i=r.index(m) 
-  print("\nMaximum volume:area ratio  for ",end="")
-  if(i==0):
-    print ("Cube. Value = ",r[i],"\n")
-  elif(i==1):
-    print ("Square Prism. Value = ",r[i],"\n")
-  elif(i==2):
-    print ("Rectangular Prism. Value = ",r[i],"\n")
+  if len(r["ratio"])==0 :                           #exception
+   print("Complete")
   else:
-    print("\nSomething Wrong","\n")
+   templistratio=list(r["ratio"])		      #'templistratio'-temporary list of ratio from the dictionary
+   maximum=max(templistratio)			      #'maximum'-Maximum ratio of the list of ratio 'r'
+   tempi=templistratio.index(maximum)               #'tempi'-Temporary index of maximum ratio in te list
+   templistkey=list(r["Key"])                       #'templistkey'-Temporary list of key from the dictionary
+   keyvalue=(int(templistkey[tempi]))               #'keyvalue'-to get the key value at that index
+   print("\nMaximum volume:area ratio  for ",end="")
+   if keyvalue== 1 :
+     print ("Cube. Value = ",templistratio[tempi],"\n")
+   elif keyvalue==2:
+     print ("Square Prism. Value = ",templistratio[tempi],"\n")
+   elif keyvalue==3:
+     print ("Rectangular Prism. Value = ",templistratio[tempi],"\n")
+   else:
+     print("Something Wrong","\n")
     
-def main():                                       #main function
-  ratio=[]                                        #ratio array declaration
-  cube=[]                                         #cube array declaration
+def cube():
+  cube=[]                                         #cube list declaration for dimensions
   cube.append(random.randint(1,1000))             #random values assigned
-  
   print("_"*70)
   print("Cube : dimensions = ",cube)
   cube_obj=Box(cube[0])                           #object declaration constructor with one argument is called
   cube_obj.area()
-  cube_obj.volume()
+  #cube_obj.volume()
   cube_obj.display()
-  ratio.append(cube_obj.ratio())
+  return(cube_obj.ratio())
 
-  square=[]
+def squareprisum():
+  square=[]                                       #square prism list declaration for dimensions
   for i in range(2):
     square.append(random.randint(1,1000))        #random values assigned
   print("_"*70)
   print("square Prism : dimensions = ",square)
   squarep_obj=Box(square[0],square[1])           #object declaration constructor with two arguments is called
   squarep_obj.area()
-  squarep_obj.volume()
+  #squarep_obj.volume()
   squarep_obj.display()
-  ratio.append(squarep_obj.ratio())
+  return(squarep_obj.ratio())
 
-  rectangle=[]                                   #rectangle array declaration
+def rectangularprisum():
+  rectangle=[]                                    #rectangle list declaration for dimensions
   for i in range(3):
      rectangle.append(random.randint(1,1000))    #random values assigned
   print("_"*70)
   print("Rectangular Prism : dimensions = ",rectangle)
   rectangularp_obj=Box(rectangle[0],rectangle[1],rectangle[2])    #object declaration with three arguments called
   rectangularp_obj.area()
-  rectangularp_obj.volume()
+  #rectangularp_obj.volume()
   rectangularp_obj.display()
-  ratio.append(rectangularp_obj.ratio())
-  print("_"*70)
-  maxratio(ratio)                                #function call
+  return(rectangularp_obj.ratio())
+  
+def main():                                       #main function
+ n=int(input("\nEnter the number of BOX required : "))
+ ratio={"ratio":[],"Key":[]}                                     #ratio dictionary of list declaration for storing the values
+ if(n<=2):
+   for k in range(0,n,2):					   #loop to create box of different shapes with random values
+    if(k<n):
+      ratiov=cube()
+      ratio["ratio"].append(ratiov)                             #appending the values to the dictionary
+      ratio["Key"].append("1")
+      k=k+1
+    if(k<n):
+      ratiov=squareprisum()
+      ratio["ratio"].append(ratiov)
+      ratio["Key"].append("2")
+      k=k+1
+ else:
+   for k in range(0,n,3):
+    if(k<n):
+      ratiov=cube()
+      ratio["ratio"].append(ratiov)
+      ratio["Key"].append("1")
+      k=k+1
+    if(k<n):
+      ratiov=squareprisum()
+      ratio["ratio"].append(ratiov)
+      ratio["Key"].append("2")
+      k=k+1
+    if(k<n):
+      ratiov=rectangularprisum()
+      ratio["ratio"].append(ratiov)
+      ratio["Key"].append("3")
+      k=k+1
+    
+ print("_"*70)
+ maxratio(ratio)                                #function call
   
 main()

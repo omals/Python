@@ -6,7 +6,7 @@ b. Reverse
 c. Difference between the products of digits at the odd position and the product of digits at the even position.
 """
 
-num=int(input("Enter the number:"))
+num=int(input("Enter the four digit number:"))
 sum=0
 reverse=0                               #reverse to store the reverse number
 

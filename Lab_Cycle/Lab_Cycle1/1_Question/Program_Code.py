@@ -29,5 +29,10 @@ sum=reminder4+reminder3+reminder2+reminder1
 difference=(reminder2*reminder4)-(reminder1*reminder3)
 
 print("Sum=",sum)                        #print the sum of the digits
-print("Reverse=",reverse)                #print the reverse of the input number
+if(t%10==0):				                     #print the reverse of the input number
+ while(t!=0):
+  if(t%10==0 and t//10):
+    print("0",end="")                   
+  t=t//10
+print(reverse) 
 print("Difference=",difference)          #print the difference between the products

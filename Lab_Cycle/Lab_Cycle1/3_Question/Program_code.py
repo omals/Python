@@ -25,8 +25,8 @@ def gross_salary(bp,da,hra,ma):
 #function to claculate Deduction
 def deduction(pt,pf,it): 
   print("Professional Tax         :",pt)
-  print("Provident Fund           :",pf)
-  print("Income Tax               :",it)             
+  print("Provident Fund           :",pf,"%")
+  print("Income Tax               :",it,"%")             
   d=pt+pf+it                                   #d- Deduction value
   print("Deduction              =  ",d)
   return d

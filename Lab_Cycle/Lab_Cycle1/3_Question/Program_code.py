@@ -20,21 +20,27 @@ def detail():
 #function to calculate the Gross Salary
 def gross_salary(bp,da,hra,ma):
   gs=bp+da+hra+ma                              #gs- Gross Salary value
-  print("Gross salary\t =  \t",gs)
   return gs
 
 #function to claculate Deduction
-def deduction(pt,pf,it):                       
+def deduction(pt,pf,it): 
+  print("Professional Tax         :",pt)
+  print("Provident Fund           :",pf,"%")
+  print("Income Tax               :",it,"%")             
   d=pt+pf+it                                   #d- Deduction value
-  print("Deduction \t = \t",d)
+  print("Deduction              =  ",d)
   return d
 
 #function to calculate the Net Salary
 def net_salary(BP,DA,HRA,MA,PT,PF,IT):
+  print("Dearness Allowance       :",DA,"%")
+  print("House Rent Allowance     :",HRA,"%")
+  print("Medical Allowance        :",MA)
   GS=gross_salary(BP,DA,HRA,MA)                #invoke the function gross_salary and return value to GS
   D=deduction(PT,PF,IT)                        #invoke the function deduction and return value to D
+  print("Gross salary           =  ",GS)
   ns=  GS-D                                    #ns- store value of Net Salary
-  print("Net Salary \t = \t",ns)
+  print("Net Salary             =  ",ns)
 
 #function to display the input details of employee
 def display(nam,cod,basicpay):                 #nam-name   cod-code   

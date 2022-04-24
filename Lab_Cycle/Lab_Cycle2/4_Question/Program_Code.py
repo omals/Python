@@ -2,7 +2,6 @@
 initialization with one parameter (for cube), two parameters (for square prism) three parameters (rectangular prism). Also, provide
 functions to calculate area and volume. Create a list of N boxes with random measurements and print the
 details of the box with maximum volume: area ratio."""
-
 import random
 class Box:                                              #class box defined                             
     count=0                                             #with the initial value of data members
@@ -52,6 +51,7 @@ class Box:                                              #class box defined
         
     def ratio(self):
        r=self.volume/self.area
+       print("\tRatio  : ",r)
        return r
 
 def maxratio(r):                                    #function to find and check the maximum Volume:Area ratio

@@ -39,7 +39,7 @@ def main():
   area1=area()
   print("\nTRIANGLE 2 : ")
   area2=area()
-  print("\nContribution of each trianglr")
+  print("\nContribution of each triangle")
   contribution(area1,area2)
 
 main()                                            #function invokation
